@@ -47,8 +47,8 @@ def parse_cli_args(arg_wrap_func: Callable = None):
     parser.add_argument("--early_stop", type=int, default=3, help="Early stopping patience")
     parser.add_argument("--CV_mode", type=int, default=1, help="CV Mode: 1,2,3")
     parser.add_argument("--inner_cv_list", type=str, default="1,", help="inner cv parts")
-    parser.add_argument("--sub_model_names", type=str, required=True, help="集成模型中的子模型")
-    parser.add_argument("--other_loss_beta", type=float, default=0.02, help="相似度 loss 的权重")
+    parser.add_argument("--sub_model_names", type=str, required=True, help="sub-model names in DSESL")
+    parser.add_argument("--other_loss_beta", type=float, default=0.02, help="similarity loss")
 
     if arg_wrap_func is not None:
         arg_wrap_func(parser)
@@ -95,7 +95,7 @@ def parse_metric_result(params, file_db: FileDB, suffix: str = None):
         y for x, y in file_db.get_all(flush=True).items()
         if suffix is None or str(x).endswith(suffix)
     ]
-    TLprint(f"metrics for CV_mode={params.CV_mode}，inner_cv_list={params.inner_cv_list}, suffix={suffix or ''}")
+    TLprint(f"metrics for CV_mode={params.CV_mode}, inner_cv_list={params.inner_cv_list}, suffix={suffix or ''}")
     for i, _type in enumerate(("valid", "test")):
         for key in METRIC_KEYS:
             num_list = [float(x[i][key]) for x in metric_list]
