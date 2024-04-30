@@ -109,7 +109,7 @@ class Trainer():
                 train_all_aupr.append(train_aupr)
                 train_all_f1.append(train_f1)
 
-            # calculate valida and test metric
+            # calculate validation and test metric
             if self.updates_counter % self.params.eval_interval == 0:
                 self._make_valid_test()
 
@@ -118,8 +118,7 @@ class Trainer():
         train_aupr = np.mean(train_all_aupr)
         train_f1 = np.mean(train_all_f1)
 
-        if frozen_status:
-            self._make_valid_test()
+        self._make_valid_test()
 
         return train_loss, train_auc, train_aupr, train_f1
 
