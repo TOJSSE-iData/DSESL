@@ -5,7 +5,7 @@
 - DSESL is an ensemble model based on a stacking strategy, which is implemented based on PyTorch.
 - DSESL need to be trained on two stage.
     - In the first stage(stage-1), DSESL construct four distinct sub-prediction models:
-        - the Knowledge Graph Embedding (KGE) sub-model,
+        - the Knowledge Graph Embedding (KGE) sub-model
         - the meta-path sub-model
         - the SL-graph sub-model
         - the Pathway sub-model
@@ -17,13 +17,13 @@
 ### Step1: Install python packages
 
 ```shell
-pip install numpy pandas scikit-learn \
-    torch_geometric==2.4.0 
+pip install numpy pandas scikit-learn torch_geometric==2.4.0 
 ```
 
 ### Step2: Extract features from `SynLethKG`
 
-- You can download the extracted feature file from [GoogleDrive](https://drive.google.com/drive/folders/1VH6KkdJkYSsIPZF8hKhir1g-lGDALl5D?usp=drive_link)
+- You can download the extracted feature file
+  from [GoogleDrive](https://drive.google.com/drive/folders/1VH6KkdJkYSsIPZF8hKhir1g-lGDALl5D?usp=drive_link)
 
 ```log
 data_new
